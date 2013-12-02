@@ -20,7 +20,7 @@ class HomeController extends BaseController {
 		return View::make('hello');
 	}
 	
-	public function postLogin()
+	public function getLogin()
 	{
 		return View::make('login');
 	}
@@ -32,9 +32,9 @@ class HomeController extends BaseController {
 	
 	public function postLogin()
 	{
-		$password = DB::only("select password from users where username = " . Input::('username'));
+		$password = DB::only("select password from users where username = " . Input::get('username'));
 		
-		if($password == Input::('password')
+		if($password == Input::get('password'))
 		{
 			return Redirect::to('hello');
 		}

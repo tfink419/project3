@@ -21,6 +21,7 @@
 
 			{{ Form:: text('username', '', array('placeholder' => 'Test Testerson')) }} </br> </br>
 			{{ Form:: password('password',  array('placeholder' => '******')) }} </br> </br>
+			{{ Form::checkbox('isAdmin', 1) }} </br> </br>
 			{{ Form:: submit('Login',  array('class' => 'btn btn-success')) }} 
 			{{ HTML:: link('register', 'Register',  array('class' => 'btn btn-primary')) }} 
 			{{ Form:: close() }}

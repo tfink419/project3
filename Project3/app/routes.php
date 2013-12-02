@@ -11,4 +11,8 @@
 |
 */
 
-Route::get('/', 'AdminController@getLogin');
+Route::get('/', 'HomeController@getLogin');
+Route::post('/', 'HomeController@postLogin');
+
+Route::get('/', 'HomeController@getRegister');
+Route::post('/', 'HomeController@postRegister');

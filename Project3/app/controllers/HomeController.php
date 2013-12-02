@@ -19,5 +19,30 @@ class HomeController extends BaseController {
 	{
 		return View::make('hello');
 	}
+	
+	public function postLogin()
+	{
+		return View::make('login');
+	}
+	
+	public function getRegister()
+	{
+		return View::make('register');
+	}
+	
+	public function postLogin()
+	{
+		$password = DB::only("select password from users where username = " . Input::('username'));
+		
+		if($password == Input::('password')
+		{
+			return Redirect::to('hello');
+		}
+	}
+	
+	public function postRegister()
+	{
+		
+	}
 
 }

@@ -1,0 +1,28 @@
+Project 3  Web application
+Due: 12/7/2009 NOON online submission (extended. NO late submission and /or free day allowed) 
+ 
+In this project, you are asked to team up with one of your classmates to design an online system for a airline booking system. 
+This system may have a front-end web interface. You can also use java with JDBC to write a program to fulfill the specifications listed below. 
+Your database created in project 2 are used to serve as a back-end database. 
+Many commercial booking websites, such as expedia.com, united.com, etc., are examples of this system. 
+There is no fixed design for this project. You are allowed to come up with any reasonable solutions. 
+It is your responsibility to come up with a complete specification that makes sense in a real system. 
+
+You are required to demonstrate your programs to the TA and/or the instructor (demo date to be determined). 
+You can put your system on a web page or in your laptop. 
+But please make sure that your source codes are submitted before the deadline. 
+If you choose to use non-Oracle DBMS for your project, you will be responsible for setting up your system on your own laptop for project demo.
+ 
+Project Specification
+Your database should allow arbitrary number of trips/ legs/ reservations/ payments. Your interface should allow at least two different roles to modify the following:
+Customers may check available flights (basic search): by date, time and airport of departure and return flights
+Customers may also check available flights given around a specific date, say +/- 2 days for a given date, departure and arrival locations..
+Customers may make a payment with the exact amount of the trip.
+No overselling (or overbooking) is allowed.
+Airline agents may add/delete/adjust future flight schedule and other information.  You may only allow switching to a bigger airplane, and/or cancel an empty flight, etc.
+You may add additional functions as long as it is consistent with the system.  One bonus part: your interface may have a login page where a user can put username and password to log in such that.  
+Customers may login to the system to retrieve all the trips they had booked/paid.
+Airline agents may login to see the sales, such as the empty seat.
+Submission requirements:
+Source files including database modification statements, html, php, jsp, java code etc.
+A doc file describing the details about the contributions of each of the group members together with a description of the major challenges and programming practices.

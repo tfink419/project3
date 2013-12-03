@@ -50,7 +50,7 @@ class HomeController extends BaseController {
 		
 		$user->save();
 		
-		return Redirect::to('login');
+		return Redirect::to('/');
 	}
 
 }

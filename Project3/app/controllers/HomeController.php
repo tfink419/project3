@@ -46,7 +46,7 @@ class HomeController extends BaseController {
 		$user->username = Input::get('username');
 		$user->password = Input::get('password');
 		$user->email = Input::get('email');
-		$user->isAdmin = Input::get('isAdmin');
+		$user->isAdmin = (Input::get('isAdmin')) ? 1 : 0;
 		
 		$user->save();
 		

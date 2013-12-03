@@ -23,6 +23,7 @@ class HomeController extends BaseController {
 	public function getLogin()
 	{
 		return View::make('login');
+		
 	}
 	
 	public function getRegister()
@@ -36,7 +37,7 @@ class HomeController extends BaseController {
 		
 		if($password == Input::get('password'))
 		{
-			return Redirect::to('hello');
+			return Redirect::to('homepage');
 		}
 	}
 	
@@ -51,6 +52,11 @@ class HomeController extends BaseController {
 		$user->save();
 		
 		return Redirect::to('/');
+	}
+	
+	public function getHomepage()
+	{
+		return View::make('homepage');
 	}
 
 }

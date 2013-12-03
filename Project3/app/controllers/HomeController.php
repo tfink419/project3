@@ -42,7 +42,15 @@ class HomeController extends BaseController {
 	
 	public function postRegister()
 	{
+		$user = new User();
+		$user->username = Input::get('username');
+		$user->password = Input::get('password');
+		$user->email = Input::get('email');
+		$user->isAdmin = Input::get('isAdmin');
 		
+		$user->save();
+		
+		return Redirect::to('login');
 	}
 
 }

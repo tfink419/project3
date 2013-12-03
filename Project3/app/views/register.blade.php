@@ -21,6 +21,7 @@
 
 			{{ Form:: text('username', '', array('placeholder' => 'Username')) }} </br> </br>
 			{{ Form:: password('password',  array('placeholder' => 'Password')) }} </br> </br>
+			{{ Form:: text('email', '',  array('placeholder' => 'Email')) }} </br> </br>
 			{{ Form::label('admin', 'Are you an Admin?')						}}
 			{{ Form::checkbox('isAdmin', 1, false) }} </br> </br>
 			{{ Form:: submit('Register',  array('class' => 'btn btn-success')) }} 

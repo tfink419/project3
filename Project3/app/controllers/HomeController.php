@@ -33,7 +33,8 @@ class HomeController extends BaseController {
 	
 	public function postLogin()
 	{
-		$password = DB::only("select password from users where username = " . Input::get('username'));
+		$query = "select password from users where username = " . "'" . Input::get('username') . "'";
+		$password = DB::statement($query);
 		
 		if($password == Input::get('password'))
 		{

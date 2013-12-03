@@ -1,3 +1,4 @@
+<link href="{{ URL::asset('css/bootstrap.css') }}" rel="stylesheet">
 <a id="menu-toggle" href="#" class="btn btn-primary btn-lg toggle"><i class="glyphicon glyphicon-bookmark"></i></a>
 <div id="sidebar-wrapper">
   <ul class="sidebar-nav">
@@ -16,3 +17,7 @@
     </li>
   </ul>
 </div>
+
+
+<script src="{{ URL::asset('js/jquery.js') }}"></script>
+<script src="{{ URL::asset('js/bootstrap.js') }}"></script>

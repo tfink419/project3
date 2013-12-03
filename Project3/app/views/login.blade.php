@@ -10,7 +10,7 @@
 		<div class="well">
 			<legend>Please Log In</legend>
 			<!--Sets the url where we will post form data-->
-			{{ Form::open(array('url' => 'login')) }}
+			{{ Form::open(array('url' => '/')) }}
 			@if($errors->any())
 			<div class="alert alert-dismissable alert-danger">
 				<!--<a href="#" class="close" data-dismiss="alert">&times;</a>-->

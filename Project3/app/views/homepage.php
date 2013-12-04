@@ -38,7 +38,7 @@
 </nav>
 
 <div>
-	<div style="opacity:0.6 ; z-index:2 ; display:block ; margin-left:auto ; margin-right:auto ; width:600px ; height:600px ; background-color:#FFF ;">
+	<div style="opacity:0.6; z-index: 2; margin: 0px 0 0 -50px; left:50%; position:absolute; width:600px; height:600px; background-color:#FFFFFF;">
 	</div>
 </div>
 

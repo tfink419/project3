@@ -17,6 +17,6 @@ Route::post('/', 'HomeController@postLogin');
 Route::get('register', 'HomeController@getRegister');
 Route::post('register', 'HomeController@postRegister');
 
-Route::get('homepage', 'HomeController@getHomepage');
+Route::get('homepage/{id}', 'HomeController@getHomepage');
 
 Route::post('login', 'HomeController@postLogin');

@@ -36,9 +36,17 @@ class HomeController extends BaseController {
 		$query = "select password from users where username = " . "'" . Input::get('username') . "'";
 		$password = DB::statement($query);
 		
+		$query2 = "select id from users where username = " . "'" . Input::get('username') . "'";
+		$id = DB::statement($query2);
+		
 		if($password == Input::get('password'))
 		{
-			return Redirect::to('homepage');
+			$url = 'homepage/' . $id;
+			return Redirect::to($url);
+		}
+		else
+		{
+			return Redirect::to('/');
 		}
 	}
 	
@@ -55,9 +63,9 @@ class HomeController extends BaseController {
 		return Redirect::to('/');
 	}
 	
-	public function getHomepage()
+	public function getHomepage($id)
 	{
-		return View::make('homepage');
+		return View::make('homepage')->with('id', $id);
 	}
 
 }

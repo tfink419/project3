@@ -16,7 +16,7 @@
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav">
       <li class="active"> <?php echo '<li><a href="../homepage/' . $id . '">'?>Home</a></li>
-      <li><a href="../searchflights/">Search Flights</a></li>
+      <li> <?php echo '<li><a href="../searchflights/' . $id . '">'?>Search Flights</a></li>
       <li><a href="#">My Flights</a></li>
      <!-- <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Flights <b class="caret"></b></a>

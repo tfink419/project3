@@ -16,7 +16,7 @@
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav">
       <li class="active"> <?php echo '<li><a href="../homepage/' . $id . '">'?>Home</a></li>
-      <li><a href="#">Search Flights</a></li>
+      <?php echo '<li><a href="../searchflights/' . $id . '">'?>Search Flights</a></li>
       <li><a href="#">My Flights</a></li>
      <!-- <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Flights <b class="caret"></b></a>
@@ -40,35 +40,10 @@
 </nav>
 
 <div>
-	<div style="padding-top:10px; padding-left:50px; opacity:0.9 ; z-index:2 ; display:block ; margin-left:auto ; margin-right:auto ; width:1200px ; height:600px ; background-color:#FFF ;">
-		<h2>Flight Search</h2>
+	<div style="padding-left:50px; padding-top:10px; opacity:0.9 ; z-index:2 ; display:block ; margin-left:auto ; margin-right:auto ; width:1200px ; height:600px ; background-color:#FFF ;">
+		<h2>My Booked Flights</h2>
 		<hr>
-		<form id="edit_project" method="post">
-      	<div class="row">
-        <div class="col-lg-4">
-          <label for="dep_date">Departure Date (mm/dd/yyyy)</label>
-          <input type="text" name="dep_date" class="form-control"> </br>
-          <label for="dep_time">Departure Time</label></br>
-          <input type="text" name="dep_time" class="form-control"> </br>
-          <label for="dep_code">Departure Airport Code</label></br>
-          <input type="text" name="dep_code" class="form-control"> </br>
-          <label for="dest_code">Destination Airport Code</label></br>
-          <input type="text" name="dest_code" class="form-control"> </br></br>
-          <input type="submit" value="Search" class="btn btn-primary"/>
-        </div>
-        <div class="col-lg-1">
-        <h3 class="text text-muted">OR<h3>
-        </div>
-        <div class="col-lg-4">
-        <label>Search Within +/- 2 Days of Date</label><br>
-          <input type="text" name="date1" class="form-control"> </br>
-          <label for="dep_code">Departure Airport Code</label></br>
-          <input type="text" name="dep_code2" class="form-control"> </br>
-          <label for="dest_code">Destination Airport Code</label></br>
-          <input type="text" name="dest_code2" class="form-control"> </br></br>
-        </div>
-      </div>
-    </form>
+
 	</div>
 </div>
 

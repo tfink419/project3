@@ -30,3 +30,5 @@ Route::post('searchflights/{id}', 'HomeController@postSearchflights');
 Route::get('myflights/{id}', 'HomeController@getMyflights');
 
 Route::get('searchresults/{id}', 'HomeController@getSearchresults');
+
+Route::get('myflights/{id}', 'HomeController@getMyflights');

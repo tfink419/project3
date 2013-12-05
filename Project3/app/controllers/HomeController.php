@@ -138,5 +138,10 @@ class HomeController extends BaseController {
 	{
 		return View::make('searchresults')->with('id', $id);
 	}
+	
+	public function getMyflights($id)
+	{
+		return View::make('myflights')->with('id', $id);
+	}
 
 }

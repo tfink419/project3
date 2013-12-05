@@ -46,12 +46,12 @@
   <div class="container">
     <h1>Welcome back!</h1>
     <?php 
-    	$email = $id= DB::table('users')->where('id', $id)->pluck('email');
+    	$email = DB::table('users')->where('id', $id)->pluck('email');
     	$numTrips = DB::table('Reservation')->where('email', $email)->count();
     	//$numTrips = Reservation::whereRaw('email = '  . $email)->count();
     ?>
     <p><?php echo "You have " . $numTrips . " booked trips."  ?></p>
-    <p><a class="btn btn-primary btn-lg" href="my_projects">My Trips</a></p>
+    <?php echo '<p><a class="btn btn-primary btn-lg" href="../myflights/' . $id . '"' . '>' ?>My Trips</a></p>
   </div>
 </div>
 	</div>

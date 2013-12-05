@@ -20,3 +20,13 @@ Route::post('register', 'HomeController@postRegister');
 Route::get('homepage/{id}', 'HomeController@getHomepage');
 
 Route::post('login', 'HomeController@postLogin');
+
+Route::get('logout/{id}', 'HomeController@getLogout');
+
+Route::get('searchflights/{id}', 'HomeController@getSearchflights');
+Route::post('searchflights/{id}', 'HomeController@postSearchflights');
+
+
+Route::get('myflights/{id}', 'HomeController@getMyflights');
+
+Route::get('searchresults/{id}', 'HomeController@getSearchresults');

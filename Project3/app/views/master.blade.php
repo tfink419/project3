@@ -15,12 +15,12 @@
         </div>
     </div>
 
-    <div id="container" style="position:absolute; top:50%; margin-top:-200px; left:0; width:100%">
+    <div id="container" style="position:absolute; top:100px; margin-top:-100px; left:0; width:100%">
         <div id="extra_space" class="row" style="height:500px vertical-align:top"></div>
     </div>
 
     <div class="row" style="positon:relative"></br></br></br></br></br></br>
-        <div style="height:30%; width:20%; margin: 0 auto; vertical-align:middle">
+        <div style="height:600px; width:20%; margin: 0 auto;">
             @yield('content')
         </div>
     </div>

@@ -166,41 +166,6 @@ VALUES('9', 'AA',800,'3', '1', 2);
 INSERT INTO Trip
 VALUES('10', 'Canada',1200,'4', '1', 3);
 
-CREATE TABLE Trip
-(
-	tripNum VARCHAR(255), 
-	airline VARCHAR(255) NOT NULL,
-	price REAL NOT NULL,
-	depCode CHAR(20),
-	destCode CHAR(20),
-	numLegs INT NOT NULL,
-	PRIMARY KEY(tripNum),
-	CONSTRAINT c1 FOREIGN KEY (depCode) REFERENCES Airport(code),
-	CONSTRAINT c2 FOREIGN KEY (destCode) REFERENCES Airport(code),
-	CONSTRAINT checkDepDest CHECK(depCode <> destCode)
-)
-
-
-CREATE TABLE Flight_leg
-(
-	legNum VARCHAR(255), 
-	departureCode CHAR(20),
-	destinationCode CHAR(20),
-	tripNum VARCHAR(255),
-	seatsAvailable INT NOT NULL,
-	legDate VARCHAR(20) NOT NULL,
-	departTime VARCHAR(20) NOT NULL,
-	arriveTime VARCHAR(20) NOT NULL,
-	airplaneID CHAR(20),
-	PRIMARY KEY(legNum, departureCode, destinationCode, tripNum, airplaneID),
-	CONSTRAINT checkAirports CHECK(departureCode <> destinationCode),
-	CONSTRAINT c3 FOREIGN KEY (departureCode) REFERENCES Airport(code),
-	CONSTRAINT c4 FOREIGN KEY (destinationCode) REFERENCES Airport(code),
-	CONSTRAINT c5 FOREIGN KEY (tripNum) REFERENCES Trip(tripNum),
-	CONSTRAINT c6 FOREIGN KEY (airplaneID) REFERENCES Airplane(ID),
-	CONSTRAINT seatsLeft CHECK (seatsAvailable >= 0)
-);
-
 
 --Triggers
 CREATE OR REPLACE TRIGGER numSeatsTrigger

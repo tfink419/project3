@@ -86,21 +86,21 @@ CREATE TABLE Payment
 
 --Data
 INSERT INTO Airport
-VALUES('0000', 'Gainesville', 'Florida', 'Gainesville Regional Airport');
+VALUES('0', 'Gainesville', 'Florida', 'Gainesville Regional Airport');
 INSERT INTO Airport
-VALUES('0001', 'Miami', 'Florida', 'Miami International Airport');
+VALUES('1', 'Miami', 'Florida', 'Miami International Airport');
 INSERT INTO Airport
-VALUES('0002', 'Orlando', 'Florida', 'Orlando International Airport');
+VALUES('2', 'Orlando', 'Florida', 'Orlando International Airport');
 INSERT INTO Airport
-VALUES('0003', 'Sarasota', 'Florida', 'Sarasota International Airport');
+VALUES('3', 'Sarasota', 'Florida', 'Sarasota International Airport');
 INSERT INTO Airport
-VALUES('0004', 'West Palm Beach', 'Florida', 'Palm Beach International Airport');
+VALUES('4', 'West Palm Beach', 'Florida', 'Palm Beach International Airport');
 INSERT INTO Airport
-VALUES('0005', 'Ft. Lauderdale', 'Florida', 'Ft. Lauderdale International Airport');
+VALUES('5', 'Ft. Lauderdale', 'Florida', 'Ft. Lauderdale International Airport');
 INSERT INTO Airport
-VALUES('0006', 'New York City', 'New York', 'MLK International Airport');
+VALUES('6', 'New York City', 'New York', 'MLK International Airport');
 INSERT INTO Airport
-VALUES('0007', 'New York City', 'New York', 'LaGuardia Airport');
+VALUES('7', 'New York City', 'New York', 'LaGuardia Airport');
 
 INSERT INTO Airplane
 VALUES('1', 'Boeing 747', '400');
@@ -110,40 +110,6 @@ INSERT INTO Airplane
 VALUES('3', 'Boeing 767', '400');
 INSERT INTO Airplane
 VALUES('4', 'Boeing 777', '380');
-
-
-INSERT INTO Flight-leg
-VALUES('1', '1','2','1', 400, '11-11-2013','0400','0600','1');
-INSERT INTO Flight-leg
-VALUES('2', '2','3','2', 450, '11-11-2013','0630','0800','2');
-INSERT INTO Flight-leg
-VALUES('3', '3','4','3', 400, '11-11-2013','0630','0800','3');
-INSERT INTO Flight-leg
-VALUES('1', '1','2','4', 400, '11-11-2013','0400','0600','1');
-INSERT INTO Flight-leg
-VALUES('2', '2','3','4', 450, '11-11-2013','0630','0800','2');
-INSERT INTO Flight-leg
-VALUES('1', '1','2','5', 400, '11-11-2013','0400','0600','1');
-INSERT INTO Flight-leg
-VALUES('2', '2','3','5', 450, '11-11-2013','0630','0800','2');
-INSERT INTO Flight-leg
-VALUES('3', '3','4','5', 400, '11-11-2013','1000','1200','1');
-INSERT INTO Flight-leg
-VALUES('4', '2','1','6', 400, '11-11-2013','0400','0600','1');
-INSERT INTO Flight-leg
-VALUES('5', '3','2','7', 450, '11-11-2013','0630','0800','2');
-INSERT INTO Flight-leg
-VALUES('6', '4','3','8', 400, '11-11-2013','0630','0800','3');
-INSERT INTO Flight-leg
-VALUES('4', '2','1','9', 400, '11-11-2013','0400','0600','1');
-INSERT INTO Flight-leg
-VALUES('5', '3','2','9', 450, '11-11-2013','0630','0800','2');
-INSERT INTO Flight-leg
-VALUES('4', '2','1','10', 400, '11-11-2013','0400','0600','1');
-INSERT INTO Flight-leg
-VALUES('5', '3','2','10', 450, '11-11-2013','0630','0800','2');
-INSERT INTO Flight-leg
-VALUES('6', '4','3','10', 400, '11-11-2013','1000','1200','1');
 
 INSERT INTO Trip
 VALUES('1', 'AA',500,'1', '2', 1);
@@ -165,6 +131,39 @@ INSERT INTO Trip
 VALUES('9', 'AA',800,'3', '1', 2);
 INSERT INTO Trip
 VALUES('10', 'Canada',1200,'4', '1', 3);
+
+INSERT INTO Flight_leg
+VALUES('1', '1','2','1', 400, '11-11-2013','0400','0600','1');
+INSERT INTO Flight_leg
+VALUES('2', '2','3','2', 450, '11-11-2013','0630','0800','2');
+INSERT INTO Flight_leg
+VALUES('3', '3','4','3', 400, '11-11-2013','0630','0800','3');
+INSERT INTO Flight_leg
+VALUES('1', '1','2','4', 400, '11-11-2013','0400','0600','1');
+INSERT INTO Flight_leg
+VALUES('2', '2','3','4', 450, '11-11-2013','0630','0800','2');
+INSERT INTO Flight_leg
+VALUES('1', '1','2','5', 400, '11-11-2013','0400','0600','1');
+INSERT INTO Flight_leg
+VALUES('2', '2','3','5', 450, '11-11-2013','0630','0800','2');
+INSERT INTO Flight_leg
+VALUES('3', '3','4','5', 400, '11-11-2013','1000','1200','1');
+INSERT INTO Flight_leg
+VALUES('4', '2','1','6', 400, '11-11-2013','0400','0600','1');
+INSERT INTO Flight_leg
+VALUES('5', '3','2','7', 450, '11-11-2013','0630','0800','2');
+INSERT INTO Flight_leg
+VALUES('6', '4','3','8', 400, '11-11-2013','0630','0800','3');
+INSERT INTO Flight_leg
+VALUES('4', '2','1','9', 400, '11-11-2013','0400','0600','1');
+INSERT INTO Flight_leg
+VALUES('5', '3','2','9', 450, '11-11-2013','0630','0800','2');
+INSERT INTO Flight_leg
+VALUES('4', '2','1','10', 400, '11-11-2013','0400','0600','1');
+INSERT INTO Flight_leg
+VALUES('5', '3','2','10', 450, '11-11-2013','0630','0800','2');
+INSERT INTO Flight_leg
+VALUES('6', '4','3','10', 400, '11-11-2013','1000','1200','1');
 
 
 --Triggers

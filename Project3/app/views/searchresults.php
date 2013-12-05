@@ -40,7 +40,7 @@
 </nav>
 
 <div>
-	<div style="padding-top:10px; padding-left:50px; opacity:0.9 ; z-index:2 ; display:block ; margin-left:auto ; margin-right:auto ; width:1200px ; height:600px ; background-color:#FFF ;">
+	<div style="padding-top:10px; padding-left:50px; padding-right:50px; opacity:0.9 ; z-index:2 ; display:block ; margin-left:auto ; margin-right:auto ; width:1200px ; height:600px ; background-color:#FFF ;">
 	<?php 
 		
   		if(count($flights) == 0) 
@@ -50,21 +50,23 @@
   		}
   		else
   		{
+  			 echo '<h2>Search Results</h2><hr><br>';
    			 echo '</br><div class="panel panel-primary">
-        		<div class="panel-heading">Available Flights</div><table class="table table-hover">
-         		 <tr>
-         		 <th>Trip Number</th>
-         		 <th>Date</th>
-          		 <th>Departure</th>
-         		 <th>Destination</th>
-         		 <th>Seats Available</th>
-         		 <th>Price</th>';
+        		  <div class="panel-heading">Available Flights</div><table class="table table-hover">
+         		  <tr>
+         		  <th>Trip Number</th>
+         		  <th>Date</th>
+          		  <th>Departure</th>
+         		  <th>Destination</th>
+         		  <th>Seats Available</th>
+         		  <th>Price</th>';
 
       for($i = 0; $i < count($flights); $i++)
       {
-        $f = $flights[$i];
-        $url = URL::action('AdminController@getFlightinfo', [$id]);
-        echo '<tr><td>' . '<a href="' . $url . '">' . $f->tripNum . '</a></td>';
+      	$f = $flights[$i];
+      	$currentTrip = DB::table('trip')->where('tripNum', '=', $f->tripNum)->get();
+        
+        echo '<tr><td>' . '<a href="../flightinfo/' . $id . '/' . $f->tripNum . '">' . $f->tripNum . '</a></td>';
         echo '<td>' . $f->legDate . '</td>';
         echo '<td>' . $f->departureCode . '</td>';
         echo '<td>' . $f->destinationCode . '</td>';

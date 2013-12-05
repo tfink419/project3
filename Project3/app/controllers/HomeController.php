@@ -120,6 +120,7 @@ class HomeController extends BaseController {
 			//Normal search
 			$departDate = Input::get('dep_date');
 			$departTime = Input::get('dep_time');
+			$departTime = str_replace(':', '_', $departTime);
 			$departCode = Input::get('dep_code');
 			$destCode = Input::get('dest_code');
 			
@@ -142,6 +143,11 @@ class HomeController extends BaseController {
 	public function getMyflights($id)
 	{
 		return View::make('myflights')->with('id', $id);
+	}
+	
+	public function getFlightinfo($id, $tripNum)
+	{
+		return View::make('flightinfo')->with('id', $id)->with('tripNum', $tripNum);
 	}
 
 }

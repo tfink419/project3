@@ -70,7 +70,7 @@ class HomeController extends BaseController {
 		$input = Input::all();
 
 		//Tells laravel the rules for validating this data
-		$rules = array('username' => 'required|unique:users', 'password' => 'required', 'email' => 'required', 'isAdmin' => 'required');
+		$rules = array('username' => 'required|unique:users', 'password' => 'required', 'email' => 'required');
 
 		$validator = Validator::make($input, $rules);
 

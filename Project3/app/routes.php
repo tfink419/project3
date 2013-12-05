@@ -32,3 +32,7 @@ Route::get('myflights/{id}', 'HomeController@getMyflights');
 Route::get('searchresults/{id}', 'HomeController@getSearchresults');
 
 Route::get('flightinfo/{id}/{tripNum}', 'HomeController@getFlightInfo');
+Route::post('flightinfo/{id}/{tripNum}', 'HomeController@postFlightInfo');
+
+
+Route::get('bookflight/{id}/{tripNum}', 'HomeController@getBookflight');

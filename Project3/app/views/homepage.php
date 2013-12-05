@@ -9,7 +9,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="#">Airline Reservation System</a>
+    <a class="navbar-brand">Airline Reservation System</a>
   </div>
 
   <!-- Collect the nav links, forms, and other content for toggling -->
@@ -17,7 +17,7 @@
     <ul class="nav navbar-nav">
       <li class="active"> <?php echo '<li><a href="../homepage/' . $id . '">'?>Home</a></li>
       <?php echo '<li><a href="../searchflights/' . $id . '">'?>Search Flights</a></li>
-      <li><a href="#">My Flights</a></li>
+      <?php echo '<li><a href="../myflights/' . $id . '">'?>My Flights</a></li>
      <!-- <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Flights <b class="caret"></b></a>
         <ul class="dropdown-menu">

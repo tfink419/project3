@@ -149,5 +149,19 @@ class HomeController extends BaseController {
 	{
 		return View::make('flightinfo')->with('id', $id)->with('tripNum', $tripNum);
 	}
+	
+	public function postFlightinfo($id, $tripNum)
+	{
+		if(Input::has('bookflight'))
+		{
+			return Redirect::to('../../../bookflight/' . $id . '/' . $tripNum);
+		}
+		return View::make('flightinfo')->with('id', $id)->with('tripNum', $tripNum);
+	}
+	
+	public function getBookflight($id, $tripNum)
+	{
+		return View::make('bookflight')->with('id', $id)->with('tripNum', $tripNum);
+	}
 
 }

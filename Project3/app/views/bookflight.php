@@ -61,29 +61,13 @@
 		</div>
 		</div>
 		<br><br<br><br><br><br<br><br>
-		<?php
-			$seatsLeft = DB::table('flight_leg')->select('seatsAvailable')->where('tripNum', '=', $tripNum)->where('departureCode', '=', $flight->depCode)->where('destinationCode', '=', $flight->destCode)->pluck('seatsAvailable');
-			if($seatsLeft == 0)
-			{
-				echo 'Sorry, there are no more seats available on this flight.';
-			}
-			else
-			{
-				echo '<input name="bookflight" type="submit" class="btn btn-primary" value="Book This Flight"/>';
-			}
-		?>
 		
-		<?php
-			$isAdmin = DB::table('users')->select('isAdmin')->where('id', '=', $id)->pluck('isAdmin');
-			
-			//If the user is an admin (airline agent) give additional options
-			if($isAdmin)
-			{
-				echo '<input type="submit" class="btn btn-warning" value="Edit Flight Info"/>';
-				echo '&nbsp';
-				echo '<input type="submit" class="btn btn-danger" value="Delete Flight"/>';
-			}
-		?>
+		<label>Please Submit Your Payment</label>
+		<div class="input-group">
+  		<span class="input-group-addon">$</span>
+  		<input type="text" class="form-control">
+  		<span class="input-group-addon">.00</span>
+</div>
 	</div>
 </div>
 

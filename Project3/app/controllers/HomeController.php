@@ -198,9 +198,9 @@ class HomeController extends BaseController {
 	{
 		$money = Input::get('money');
 		$tripPrice = DB::table('trip')->where('tripNum', '=', $tripNum)->pluck('price');
-	
-		/*if($money == $tripPrice)
-		{*/
+		
+		if($money == $tripPrice)
+		{
 			$currentDate = date('m-d-Y');
 		
 			DB::table('reservation')->insert(
@@ -213,11 +213,11 @@ class HomeController extends BaseController {
     		
     		
     		return Redirect::to('../../../confirmres/' . $id);
-		/*}
+		}
 		else
 		{
 			return Redirect::to('../../../bookflight/' . $id . '/' . $tripNum);
-		}*/
+		}
 		
 	}
 	

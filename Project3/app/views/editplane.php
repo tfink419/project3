@@ -1,5 +1,5 @@
 <body style="background-image:url('http://www.hdwallpapers.in/walls/aeroplane-HD.jpg'); position:relative;">
-<link href="../css/bootstrap.css" rel="stylesheet">
+<link href="../../../css/bootstrap.css" rel="stylesheet">
 <nav class="navbar navbar-default" role="navigation">
   <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header">
@@ -9,15 +9,15 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand">Airline Reservation System</a>
+    <a class="navbar-brand" href="#">Airline Reservation System</a>
   </div>
 
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav">
       <li class="active"> <?php echo '<li><a href="/homepage/' . $id . '">'?>Home</a></li>
-      <?php echo '<li><a href="/searchflights/' . $id . '">'?>Search Flights</a></li>
-      <?php echo '<li><a href="/myflights/' . $id . '">'?>My Flights</a></li>
+      <li> <?php echo '<li><a href="/searchflights/' . $id . '">'?>Search Flights</a></li>
+      <li><a href="#">My Flights</a></li>
      <!-- <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Flights <b class="caret"></b></a>
         <ul class="dropdown-menu">
@@ -40,20 +40,32 @@
 </nav>
 
 <div>
-	<div style="padding-top:10px; opacity:0.9 ; z-index:2 ; display:block ; margin-left:auto ; margin-right:auto ; width:1200px ; height:600px ; background-color:#FFF ;">
-		
-<div class="jumbotron" style="width:95%; margin: 0 auto; border-radius: 10px">
-  <div class="container">
-    <h1>Welcome back!</h1>
-    <?php 
-    	$numTrips = DB::table('Reservation')->where('accountNum', $id)->count();
-    	//$numTrips = Reservation::whereRaw('email = '  . $email)->count();
-    ?>
-    <p><?php echo "You have " . $numTrips . " booked trips."  ?></p>
-    <?php echo '<p><a class="btn btn-primary btn-lg" href="../myflights/' . $id . '"' . '>' ?>My Trips</a></p>
-  </div>
+	<div style="padding-top:10px; padding-left:50px; padding-right:50px; opacity:0.9 ; z-index:2 ; display:block ; margin-left:auto ; margin-right:auto ; width:1200px ; height:600px ; background-color:#FFF ;">
+	<?php 
+	 $leg = DB::table('Flight_leg')->where('legNum','=',$legNum)->where('tripNum','=',$tripNum)->get();
+	 $plane = DB::table('Airplane')->where('ID','=',$leg[0]->airplaneID)->get();
+	 echo '<h2>All Planes Available for Switching in Leg '. $legNum .' of Trip '. $tripNum .'</h2><hr><br>';
+	 echo '</br><div class="panel panel-primary">
+		  <div class="panel-heading">Planes - Current Plane Used: '. $plane[0]->type .'(ID:'. $plane[0]->ID .')</div><table class="table table-hover">
+		  <tr>
+		  <th>Plane ID</th>
+		  <th>Plane Type</th>
+		  <th>Maximum Seats Available</th>';
+	  $planes = DB::table('Airplane')->select(DB::raw('*'))->where('numSeats','>=',$plane[0]->numSeats)->get();
+      for($i = 0; $i < count($planes); $i++)
+      {
+      	$p = $planes[$i];
+        
+        echo '<tr><td>' . '<a href="/confirmedit/' . $id . '/' . $tripNum . '/' . $legNum . '/' . $p->ID . '">' . $p->ID . '</a></td>';
+        echo '<td>' . $p->type . '</td>';
+        echo '<td>' . $p->numSeats . '</td>';
+        echo '</tr>';
+      }
+?>
+  
+    </tr>
+  </table>
 </div>
-	</div>
 </div>
 
 <script src="../js/jquery.js"></script>

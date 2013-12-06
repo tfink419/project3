@@ -82,7 +82,7 @@
 			//If the user is an admin (airline agent) give additional options
 			if($isAdmin)
 			{
-				echo '<input type="submit" class="btn btn-warning" value="Edit Flight Info"/>';
+				echo '<form method="post"><input type="submit" name="edit" class="btn btn-warning" value="Edit Flight Info"/></form>';
 				echo '&nbsp';
 				echo '<form method="post"><input type="submit" name="delete" class="btn btn-danger" value="Delete Flight"/></form>';
 			}

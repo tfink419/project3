@@ -200,7 +200,23 @@ class HomeController extends BaseController {
 			}
 			return Redirect::to('../../../declinedel/' . $id);
 		}
+		elseif(Input::has('edit'))
+		{
+			$legs = DB::table('flight_leg')
+                     ->select(DB::raw('*'))
+                     ->where('tripNum','=',$tripNum)->get();
+			return View::make('edittrips')->with('id', $id)->with('legs', $legs);
+		}
 		return View::make('flightinfo')->with('id', $id)->with('tripNum', $tripNum);
+	}
+	
+	public function getEditTrips($id)
+	{
+		return View::make('edittrips')->with('id', $id);
+	}
+	public function getEditPlane($id, $tripNum, $legNum)
+	{
+		return View::make('editplane')->with('id', $id)->with('tripNum', $tripNum)->with('legNum', $legNum);
 	}
 	
 	public function getBookflight($id, $tripNum)
@@ -237,7 +253,18 @@ class HomeController extends BaseController {
 		}
 		
 	}
-	
+	public function getConfirmedit($id,$tripNum,$legNum,$planeID)
+	{
+		$leg = DB::table('Flight_leg')->where('legNum','=',$legNum)->where('tripNum','=',$tripNum)->get();
+		$prevSeats = DB::table('Airplane')->where('ID','=',$leg[0]->airplaneID)->pluck('numSeats');
+		$newSeats = DB::table('Airplane')->where('ID','=',$planeID)->pluck('numSeats');
+		
+		DB::table('flight_leg')
+			 ->where('tripNum', '=', $tripNum)
+			 ->where('legNum', '=', $legNum)
+			 ->update(array('seatsAvailable' => $newSeats-$prevSeats+$leg[0]->seatsAvailable,'airplaneID' => $planeID));
+		return View::make('confirmedit')->with('id', $id)->with('tripNum', $tripNum)->with('legNum', $legNum)->with('planeID', $planeID);
+	}
 	public function getConfirmres($id)
 	{
 		return View::make('confirmres')->with('id', $id);

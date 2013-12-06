@@ -1,5 +1,5 @@
 <body style="background-image:url('http://www.hdwallpapers.in/walls/aeroplane-HD.jpg'); position:relative;">
-<link href="../css/bootstrap.css" rel="stylesheet">
+<link href="/css/bootstrap.css" rel="stylesheet">
 <nav class="navbar navbar-default" role="navigation">
   <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header">
@@ -9,7 +9,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand">Airline Reservation System</a>
+    <a class="navbar-brand" href="#">Airline Reservation System</a>
   </div>
 
   <!-- Collect the nav links, forms, and other content for toggling -->
@@ -17,7 +17,7 @@
     <ul class="nav navbar-nav">
       <li class="active"> <?php echo '<li><a href="/homepage/' . $id . '">'?>Home</a></li>
       <?php echo '<li><a href="/searchflights/' . $id . '">'?>Search Flights</a></li>
-      <?php echo '<li><a href="/myflights/' . $id . '">'?>My Flights</a></li>
+      <li><a href="#">My Flights</a></li>
      <!-- <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Flights <b class="caret"></b></a>
         <ul class="dropdown-menu">
@@ -40,22 +40,16 @@
 </nav>
 
 <div>
-	<div style="padding-top:10px; opacity:0.9 ; z-index:2 ; display:block ; margin-left:auto ; margin-right:auto ; width:1200px ; height:600px ; background-color:#FFF ;">
-		
-<div class="jumbotron" style="width:95%; margin: 0 auto; border-radius: 10px">
-  <div class="container">
-    <h1>Welcome back!</h1>
-    <?php 
-    	$numTrips = DB::table('Reservation')->where('accountNum', $id)->count();
-    	//$numTrips = Reservation::whereRaw('email = '  . $email)->count();
-    ?>
-    <p><?php echo "You have " . $numTrips . " booked trips."  ?></p>
-    <?php echo '<p><a class="btn btn-primary btn-lg" href="../myflights/' . $id . '"' . '>' ?>My Trips</a></p>
-  </div>
-</div>
+	<div style="padding-left:50px; padding-right:50px; padding-top:10px; opacity:0.9 ; z-index:2 ; display:block ; margin-left:auto ; margin-right:auto ; width:1200px ; height:600px ; background-color:#FFF ;">
+		<h2>Edit Successful</h2>
+		<hr>
+		<div class="alert alert-success">The plane used for the leg of that flight was changed.<br>You will now be redirected.</div>
+		<?php 
+			header('Refresh: 3; url=/myflights/' . $id);
+		?>
 	</div>
 </div>
 
-<script src="../js/jquery.js"></script>
-<script src="../js/bootstrap.js"></script>
+<script src="/js/jquery.js"></script>
+<script src="/js/bootstrap.js"></script>
 </body>

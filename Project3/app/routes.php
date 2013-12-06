@@ -34,10 +34,13 @@ Route::get('searchresults/{id}', 'HomeController@getSearchresults');
 Route::get('flightinfo/{id}/{tripNum}', 'HomeController@getFlightInfo');
 Route::post('flightinfo/{id}/{tripNum}', 'HomeController@postFlightInfo');
 
+Route::get('edittrips/{id}/{tripNum}', 'HomeController@getEditTrips');
+Route::get('editplane/{id}/{tripNum}/{legNum}', 'HomeController@getEditPlane');
 
 Route::get('bookflight/{id}/{tripNum}', 'HomeController@getBookflight');
 Route::post('bookflight/{id}/{tripNum}', 'HomeController@postBookflight');
 
+Route::get('confirmedit/{id}/{tripNum}/{legNum}/{planeID}', 'HomeController@getConfirmedit');
 Route::get('confirmres/{id}', 'HomeController@getConfirmres');
 Route::get('confirmdel/{id}', 'HomeController@getConfirmdel');
 Route::get('declinedel/{id}', 'HomeController@getDeclinedel');

@@ -68,7 +68,7 @@
                      ->min('seatsAvailable');
 			if($seatsLeft == 0)
 			{
-				echo 'Sorry, there are no more seats available on this flight.';
+				echo 'Sorry, there are no more seats available on this flight.<br><br>';
 			}
 			else
 			{

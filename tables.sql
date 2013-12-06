@@ -135,7 +135,7 @@ INSERT INTO Trip
 VALUES('10', 'Canada',1200,'SAR', 'GAI', 3, '11/11/2013','4_00');
 
 INSERT INTO Flight_leg
-VALUES('1', 'GAI','MIA','1', 400, '11/11/2013','4_00','6_00','1');
+VALUES('1', 'GAI','MIA','1', 1, '11/11/2013','4_00','6_00','1');
 INSERT INTO Flight_leg
 VALUES('1', 'MIA','ORL','2', 450, '11/11/2013','6_30','8_00','2');
 INSERT INTO Flight_leg

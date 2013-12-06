@@ -54,6 +54,7 @@
 		<label>Departure Airport:&nbsp</label><?php echo $flight->depCode;?><br>
 		<label>Destination Airport:&nbsp</label><?php echo $flight->destCode;?><br>
 		<label>Number of Flight Legs:&nbsp</label><?php echo $flight->numLegs;?><br>
+		<label>Price:&nbsp$</label><?php echo $flight->price;?><br>
 		</div>
 		<div class="col-md-1">
 		</div>

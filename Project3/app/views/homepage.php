@@ -46,8 +46,7 @@
   <div class="container">
     <h1>Welcome back!</h1>
     <?php 
-    	$email = DB::table('users')->where('id', $id)->pluck('email');
-    	$numTrips = DB::table('Reservation')->where('email', $email)->count();
+    	$numTrips = DB::table('Reservation')->where('accountNum', $id)->count();
     	//$numTrips = Reservation::whereRaw('email = '  . $email)->count();
     ?>
     <p><?php echo "You have " . $numTrips . " booked trips."  ?></p>

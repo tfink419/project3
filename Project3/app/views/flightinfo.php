@@ -69,7 +69,7 @@
 			}
 			else
 			{
-				echo '<input name="bookflight" type="submit" class="btn btn-primary" value="Book This Flight"/>';
+				echo '<input type="submit" name="bookflight" class="btn btn-primary" value="Book This Flight"/>';
 			}
 		?>
 		

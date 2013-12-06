@@ -135,9 +135,9 @@ VALUES('10', 'Canada',1200,'SAR', 'GAI', 3);
 INSERT INTO Flight_leg
 VALUES('1', 'GAI','MIA','1', 400, '11/11/2013','4_00','6_00','1');
 INSERT INTO Flight_leg
-VALUES('2', 'MIA','ORL','2', 450, '11/11/2013','6_30','8_00','2');
+VALUES('1', 'MIA','ORL','2', 450, '11/11/2013','6_30','8_00','2');
 INSERT INTO Flight_leg
-VALUES('3', 'ORL','SAR','3', 400, '11/11/2013','6_30','8_00','3');
+VALUES('1', 'ORL','SAR','3', 400, '11/11/2013','6_30','8_00','3');
 INSERT INTO Flight_leg
 VALUES('1', 'GAI','MIA','4', 400, '11/11/2013','4_00','6_00','1');
 INSERT INTO Flight_leg
@@ -149,21 +149,21 @@ VALUES('2', 'MIA','ORL','5', 450, '11/11/2013','6_30','8_00','2');
 INSERT INTO Flight_leg
 VALUES('3', 'ORL','SAR','5', 400, '11/11/2013','10_00','12_00','1');
 INSERT INTO Flight_leg
-VALUES('4', 'MIA','GAI','6', 400, '11/11/2013','4_00','6_00','1');
+VALUES('1', 'MIA','GAI','6', 400, '11/11/2013','4_00','6_00','1');
 INSERT INTO Flight_leg
-VALUES('5', 'ORL','MIA','7', 450, '11/11/2013','6_30','8_00','2');
+VALUES('1', 'ORL','MIA','7', 450, '11/11/2013','6_30','8_00','2');
 INSERT INTO Flight_leg
-VALUES('6', 'SAR','ORL','8', 400, '11/11/2013','6_30','8_00','3');
+VALUES('1', 'SAR','ORL','8', 400, '11/11/2013','6_30','8_00','3');
 INSERT INTO Flight_leg
-VALUES('4', 'MIA','GAI','9', 400, '11/11/2013','4_00','6_00','1');
+VALUES('1', 'ORL','MIA','9', 400, '11/11/2013','4_00','6_00','1');
 INSERT INTO Flight_leg
-VALUES('5', 'ORL','MIA','9', 450, '11/11/2013','6_30','8_00','2');
+VALUES('2', 'MIA','GAI','9', 450, '11/11/2013','6_30','8_00','2');
 INSERT INTO Flight_leg
-VALUES('4', 'MIA','GAI','10', 400, '11/11/2013','4_00','6_00','1');
+VALUES('1', 'SAR','ORL','10', 400, '11/11/2013','4_00','6_00','1');
 INSERT INTO Flight_leg
-VALUES('5', 'ORL','MIA','10', 450, '11/11/2013','6_30','8_00','2');
+VALUES('2', 'ORL','MIA','10', 450, '11/11/2013','6_30','8_00','2');
 INSERT INTO Flight_leg
-VALUES('6', 'SAR','ORL','10', 400, '11/11/2013','10_00','12_00','1');
+VALUES('3', 'MIA','GAI','10', 400, '11/11/2013','10_00','12_00','1');
 
 
 --Triggers

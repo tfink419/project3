@@ -116,32 +116,32 @@ INSERT INTO Airplane
 VALUES('4', 'Boeing 777', '380');
 
 INSERT INTO Trip
-VALUES('1', 'AA',500,'GAI', 'MIA', 1);
+VALUES('1', 'AA',500,'GAI', 'MIA', 1, '11/11/2013','4_00');
 INSERT INTO Trip
-VALUES('2', 'Delta',300,'MIA', 'ORL', 1);
+VALUES('2', 'Delta',300,'MIA', 'ORL', 1, '11/11/2013','6_30');
 INSERT INTO Trip
-VALUES('3', 'Delta',400,'ORL', 'SAR', 2);
+VALUES('3', 'Delta',400,'ORL', 'SAR', 2, '11/11/2013','10_00');
 INSERT INTO Trip
-VALUES('4', 'AA',800,'GAI', 'ORL', 2);
+VALUES('4', 'AA',800,'GAI', 'ORL', 2, '11/11/2013','4_00');
 INSERT INTO Trip
-VALUES('5', 'Canada',1200,'GAI', 'SAR', 3);
+VALUES('5', 'Canada',1200,'GAI', 'SAR', 3, '11/11/2013','4_00');
 INSERT INTO Trip
-VALUES('6', 'AA',500,'MIA', 'GAI', 1);
+VALUES('6', 'AA',500,'MIA', 'GAI', 1, '11/11/2013','4_00');
 INSERT INTO Trip
-VALUES('7', 'Delta',300,'ORL', 'MIA', 1);
+VALUES('7', 'Delta',300,'ORL', 'MIA', 1, '11/11/2013','6_30');
 INSERT INTO Trip
-VALUES('8', 'Delta',400,'SAR', 'ORL', 2);
+VALUES('8', 'Delta',400,'SAR', 'ORL', 2, '11/11/2013','10_00');
 INSERT INTO Trip
-VALUES('9', 'AA',800,'ORL', 'GAI', 2);
+VALUES('9', 'AA',800,'ORL', 'GAI', 2, '11/11/2013','4_00');
 INSERT INTO Trip
-VALUES('10', 'Canada',1200,'SAR', 'GAI', 3);
+VALUES('10', 'Canada',1200,'SAR', 'GAI', 3, '11/11/2013','4_00');
 
 INSERT INTO Flight_leg
 VALUES('1', 'GAI','MIA','1', 400, '11/11/2013','4_00','6_00','1');
 INSERT INTO Flight_leg
 VALUES('1', 'MIA','ORL','2', 450, '11/11/2013','6_30','8_00','2');
 INSERT INTO Flight_leg
-VALUES('1', 'ORL','SAR','3', 400, '11/11/2013','6_30','8_00','3');
+VALUES('1', 'ORL','SAR','3', 400, '11/11/2013','10_00','12_00','3');
 INSERT INTO Flight_leg
 VALUES('1', 'GAI','MIA','4', 400, '11/11/2013','4_00','6_00','1');
 INSERT INTO Flight_leg
@@ -153,13 +153,13 @@ VALUES('2', 'MIA','ORL','5', 450, '11/11/2013','6_30','8_00','2');
 INSERT INTO Flight_leg
 VALUES('3', 'ORL','SAR','5', 400, '11/11/2013','10_00','12_00','1');
 INSERT INTO Flight_leg
-VALUES('1', 'MIA','GAI','6', 400, '11/11/2013','4_00','6_00','1');
+VALUES('1', 'MIA','GAI','6', 400, '11/11/2013','10_00','12_00','1');
 INSERT INTO Flight_leg
 VALUES('1', 'ORL','MIA','7', 450, '11/11/2013','6_30','8_00','2');
 INSERT INTO Flight_leg
-VALUES('1', 'SAR','ORL','8', 400, '11/11/2013','6_30','8_00','3');
+VALUES('1', 'SAR','ORL','8', 400, '11/11/2013','4_00','6_00','3');
 INSERT INTO Flight_leg
-VALUES('1', 'ORL','MIA','9', 400, '11/11/2013','4_00','6_00','1');
+VALUES('1', 'ORL','MIA','9', 400, '11/11/2013','6_30','8_00','1');
 INSERT INTO Flight_leg
 VALUES('2', 'MIA','GAI','9', 450, '11/11/2013','6_30','8_00','2');
 INSERT INTO Flight_leg

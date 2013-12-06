@@ -60,17 +60,13 @@
 		</div>
 		</div>
 		<br><br>
-		<div class="row">
-		<div class="col-md-4">
-			
-		</div>
-		</div>
 		<br><br<br>
 		<div class="row">
 			<div class="col-md-4">
 			<form method="post">
 				<label>Please Submit Your Payment</label>
 				<input type="text" name="money" class="form-control">
+				<br>
 				<input class="btn btn-primary" type="submit" value="Submit"/>
 			</form>
 			</div>

@@ -108,12 +108,25 @@ class HomeController extends BaseController {
 		return View::make('searchflights')->with('id', $id);
 	}
 	
+	11/11/
+	
 	public function postSearchflights($id)
 	{
 		//Check to see if searched by date range
-		if(Input::has('date1') && Input::has('date2'))
+		if(Input::has('date1'))
 		{
+			//Parse day field
+			$day = substr(Input::get('date1'), 3, 2);
+			$month = substr(Input::get('date1'), 0, 2);
+			$year = substr(Input::get('date1'), 6, 4);
 			
+			$day1 = $day - 2;
+			$day2 = $day + 2;	
+			
+			//Create new dates within + and - 2 days of the original
+			$date1 = $day1 . '/' . $month . '/' . $year;
+			$date2 = $day2 . '/' . $month . '/' . $year;
+				
 		}
 		else
 		{

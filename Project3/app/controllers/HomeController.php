@@ -131,9 +131,9 @@ class HomeController extends BaseController {
                      ->where('legDate', '=', $departDate)
                      ->where('departTime', '=', $departTime)->get();
                      
-            $tripNumber = DB::table('trip')->where('depCode', '=', $departCode)->where('destCode', '=', $destCode)->where('depCode', '=', $departCode)pluck();
+            $tripNumber = DB::table('trip')->where('depCode', '=', $departCode)->where('destCode', '=', $destCode)->get();
                      
-            $flight_leg = DB::table('flight_leg')->select('legDate')->where('departureCode', '=', $departCode)->where('tripNum', '=', '');
+            $flight_leg = DB::table('flight_leg')->select('legDate')->where('departureCode', '=', $departCode)->whereIn('tripNum', $tripNumber);
                      
             return View::make('searchresults')->with('id', $id)->with('flights', $flights);
 		}

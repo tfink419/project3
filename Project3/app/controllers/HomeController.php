@@ -167,5 +167,37 @@ class HomeController extends BaseController {
 	{
 		return View::make('bookflight')->with('id', $id)->with('tripNum', $tripNum);
 	}
+	
+	public function postBookflight($id, $tripNum)
+	{
+		$money = Input::get('money');
+		$tripPrice = DB::table('trip')->where('tripNum', '=', $tripNum)->pluck('price');
+	
+		/*if($money == $tripPrice)
+		{*/
+			$currentDate = date('m-d-Y');
+		
+			DB::table('reservation')->insert(
+    		array('reserveDate' => $currentDate, 'accountNum' => $id));
+    		
+			DB::table('payment')->insert(
+    		array('tripNum' => $tripNum, 'transactionNum' => $tripNum, 'accountNum' => $id));
+    		
+    		
+    		
+    		
+    		return Redirect::to('../../../confirmres/' . $id);
+		/*}
+		else
+		{
+			return Redirect::to('../../../bookflight/' . $id . '/' . $tripNum);
+		}*/
+		
+	}
+	
+	public function getConfirmres($id)
+	{
+		return View::make('confirmres')->with('id', $id);
+	}
 
 }

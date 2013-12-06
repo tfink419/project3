@@ -41,7 +41,7 @@
 
 <div>
 	<div style="padding-left:50px; padding-right:50px; padding-top:10px; opacity:0.9 ; z-index:2 ; display:block ; margin-left:auto ; margin-right:auto ; width:1200px ; height:600px ; background-color:#FFF ;">
-		<h2>Flight Information</h2>
+		<h2>Book Flight</h2>
 		<hr>
 		<?php 
 			$flight = $currentTrip = DB::table('trip')->where('tripNum', '=', $tripNum)->get(); 
@@ -57,17 +57,21 @@
 		</div>
 		<div class="col-md-1">
 		</div>
+		</div>
+		<br><br>
+		<div class="row">
 		<div class="col-md-4">
+			<label>Please Submit Your Payment</label>
+			<input type="text" name="money" class="form-control">
 		</div>
 		</div>
-		<br><br<br><br><br><br<br><br>
-		
-		<label>Please Submit Your Payment</label>
-		<div class="input-group">
-  		<span class="input-group-addon">$</span>
-  		<input type="text" class="form-control">
-  		<span class="input-group-addon">.00</span>
-</div>
+		<br><br<br>
+		<div class="row">
+			<div class="col-md-4">
+			<form method="post"><input class="btn btn-primary" type="submit" value="Submit"/></form>
+			</div>
+		</div>
+		<br><br<br><br><br>
 	</div>
 </div>
 

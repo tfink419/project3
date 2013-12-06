@@ -40,10 +40,48 @@
 </nav>
 
 <div>
-	<div style="padding-left:50px; padding-top:10px; opacity:0.9 ; z-index:2 ; display:block ; margin-left:auto ; margin-right:auto ; width:1200px ; height:600px ; background-color:#FFF ;">
-		<h2>My Booked Flights</h2>
+	<div style="padding-left:50px; padding-right:50px; padding-top:10px; opacity:0.9 ; z-index:2 ; display:block ; margin-left:auto ; margin-right:auto ; width:1200px ; height:600px ; background-color:#FFF ;">
+		<h2>My Reservations</h2>
 		<hr>
-
+		<?php
+			 $res = DB::table('reservation')->where('accountNum', '=', $id)->get();
+			if(count($res) == 0) 
+  			{
+  				echo '<br>';
+   				echo '<em>You currently have no reservations.</em>';
+  			}
+  			else
+  			{
+   				 echo '</br><div class="panel panel-primary">
+        			  <div class="panel-heading">Reservations</div><table class="table table-hover">
+         			  <tr>
+         		 	  <th>Trip Number</th>
+         		 	  <th>Date Booked</th>
+          		  	  <th>Departure</th>
+          		  	  <th>Departure Date</th>
+         		  	  <th>Destination</th>';
+         		  	  
+         		
+         		 $payments = DB::table('payment')->where('accountNum', '=', $id)->get();
+				 for($i = 0; $i < count($res); $i++)
+				 {
+					$r = $res[$i];
+					$p = $payments[$i];
+					
+					echo '<tr><td>' . $p->tripNum . '</a></td>';
+					echo '<td>' . $r->reserveDate . '</td>';
+					$dep = DB::table('trip')->where('tripNum', '=', $p->tripNum)->pluck('depCode');
+					$dest = DB::table('trip')->where('tripNum', '=', $p->tripNum)->pluck('destCode');
+					$depDate = DB::table('trip')->where('tripNum', '=', $p->tripNum)->pluck('departDate');
+					echo '<td>' . $dep . '</td>';
+					echo '<td>' . $depDate . '</td>';
+					echo '<td>' . $dest . '</td>';
+				 }
+ 			 }
+		
+		
+			
+		?>
 	</div>
 </div>
 

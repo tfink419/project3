@@ -42,10 +42,11 @@ CREATE TABLE Trip
 
 CREATE TABLE Reservation
 (
-	reservationNum VARCHAR(255), 
-	email VARCHAR(255) NOT NULL,
-	name VARCHAR(255) NOT NULL,
-	address VARCHAR(255) NOT NULL,
+	reservationNum INT AUTO_INCREMENT, 
+	accountNum INT NOT NULL,
+	email VARCHAR(255),
+	name VARCHAR(255),
+	address VARCHAR(255),
 	phoneNum INT,
 	reserveDate VARCHAR(30) NOT NULL,
 	PRIMARY KEY(reservationNum)
@@ -76,14 +77,13 @@ CREATE TABLE Flight_leg
 CREATE TABLE Payment
 (
 	tripNum VARCHAR(255), 
-	resNum VARCHAR(255),
-	transactionNum CHAR(20),
+	resNum INT,
+	transactionNum INT,
 	paymentDate CHAR(20),
 	nameOnAccount VARCHAR(255),
 	accountNum VARCHAR(255),
 	PRIMARY KEY(tripNum, resNum, transactionNum),
-	CONSTRAINT c7 FOREIGN KEY (tripNum) REFERENCES Trip(tripNum),
-	CONSTRAINT c8 FOREIGN KEY (resNum) REFERENCES Reservation(reservationNum)
+	CONSTRAINT c7 FOREIGN KEY (tripNum) REFERENCES Trip(tripNum)
 );
 
 --Data--

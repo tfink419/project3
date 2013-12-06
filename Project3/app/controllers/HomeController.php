@@ -210,7 +210,12 @@ class HomeController extends BaseController {
     		
     		
     		
-    		
+    		$prevSeats = DB::table('flight_leg')
+                     ->where('tripNum','=',$tripNum)->pluck('seatsAvailable');
+            DB::table('flight_leg')
+                     ->where('tripNum','=',$tripNum)
+                     ->update(array('seatsAvailable' => $prevSeats-1));
+            
     		return Redirect::to('../../../confirmres/' . $id);
 		}
 		else

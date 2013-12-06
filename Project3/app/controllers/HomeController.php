@@ -128,12 +128,12 @@ class HomeController extends BaseController {
                      ->select(DB::raw('*'))
                      ->where('depCode', '=', $departCode)
                      ->where('destCode', '=', $destCode)
-                     ->where('legDate', '=', $departDate)
+                     ->where('departDate', '=', $departDate)
                      ->where('departTime', '=', $departTime)->get();
                      
-            $tripNumber = DB::table('trip')->where('depCode', '=', $departCode)->where('destCode', '=', $destCode)->get();
+            //$tripNumber = DB::table('flight_leg')->where('depCode', '=', $departCode)->where('destCode', '=', $destCode)->where('departTime', '=', $departTime)->pluck('tripNum');
                      
-            $flight_leg = DB::table('flight_leg')->select('legDate')->where('departureCode', '=', $departCode)->whereIn('tripNum', $tripNumber);
+            //$flight_leg = DB::table('flight_leg')->select('legDate')->where('departureCode', '=', $departCode)->where('tripNum', '=', $tripNumber)->pluck();
                      
             return View::make('searchresults')->with('id', $id)->with('flights', $flights);
 		}

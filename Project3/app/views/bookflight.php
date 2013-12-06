@@ -62,14 +62,17 @@
 		<br><br>
 		<div class="row">
 		<div class="col-md-4">
-			<label>Please Submit Your Payment</label>
-			<input type="text" name="money" class="form-control">
+			
 		</div>
 		</div>
 		<br><br<br>
 		<div class="row">
 			<div class="col-md-4">
-			<form method="post"><input class="btn btn-primary" type="submit" value="Submit"/></form>
+			<form method="post">
+				<label>Please Submit Your Payment</label>
+				<input type="text" name="money" class="form-control">
+				<input class="btn btn-primary" type="submit" value="Submit"/>
+			</form>
 			</div>
 		</div>
 		<br><br<br><br><br>

@@ -196,9 +196,8 @@ class HomeController extends BaseController {
 	
 	public function postBookflight($id, $tripNum)
 	{
-		$money = Input::get('money');
-		$tripPrice = DB::table('trip')->where('tripNum', '=', $tripNum)->pluck('price');
-		
+		$money = intval(Input::get('money'));
+		$tripPrice = intval(DB::table('trip')->where('tripNum', '=', $tripNum)->pluck('price'));
 		if($money == $tripPrice)
 		{
 			$currentDate = date('m-d-Y');

@@ -32,9 +32,13 @@ CREATE TABLE Trip
 	depCode CHAR(20),
 	destCode CHAR(20),
 	numLegs INT NOT NULL,
+	departDate VARCHAR(20),
+	departTime VARCHAR(20),
 	PRIMARY KEY(tripNum),
 	CONSTRAINT c1 FOREIGN KEY (depCode) REFERENCES Airport(code),
 	CONSTRAINT c2 FOREIGN KEY (destCode) REFERENCES Airport(code),
+	CONSTRAINT c3 FOREIGN KEY (departDate) REFERENCES Flight_leg(legDate),
+	CONSTRAINT c4 FOREIGN KEY (departTime) REFERENCES Flight_leg(departTime),
 	CONSTRAINT checkDepDest CHECK(depCode <> destCode)
 );
 

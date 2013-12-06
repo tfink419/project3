@@ -62,7 +62,10 @@
 		</div>
 		<br><br<br><br><br><br<br><br>
 		<?php
-			$seatsLeft = DB::table('flight_leg')->select('seatsAvailable')->where('tripNum', '=', $tripNum)->where('departureCode', '=', $flight->depCode)->where('destinationCode', '=', $flight->destCode)->pluck('seatsAvailable');
+			//$seatsLeft = DB::table('flight_leg')->select('seatsAvailable')->where('tripNum', '=', $tripNum)->where('departureCode', '=', $flight->depCode)->where('destinationCode', '=', $flight->destCode)->pluck('seatsAvailable');
+			$seatsLeft = DB::table('flight_leg')
+                     ->where('tripNum','=',$flight->tripNum)
+                     ->min('seatsAvailable');
 			if($seatsLeft == 0)
 			{
 				echo 'Sorry, there are no more seats available on this flight.';

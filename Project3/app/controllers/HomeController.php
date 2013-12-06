@@ -114,8 +114,8 @@ class HomeController extends BaseController {
 		//Check to see if searched by date range
 		if(Input::has('date1'))
 		{
-			$departCode = Input::get('dep_code');
-			$destCode = Input::get('dest_code');
+			$departCode = Input::get('dep_code2');
+			$destCode = Input::get('dest_code2');
 			//Parse day field
 			$day = substr(Input::get('date1'), 3, 2);
 			$month = substr(Input::get('date1'), 0, 2);
@@ -127,11 +127,11 @@ class HomeController extends BaseController {
 			$day1p = $day + 1;		
 			
 			//Create new dates within + and - 2 days of the original
-			$date2m = $day2m . '/' . $month . '/' . $year;
-			$date2p = $day2p . '/' . $month . '/' . $year;
-			$date1m = $day1m . '/' . $month . '/' . $year;
-			$date1p = $day1p . '/' . $month . '/' . $year;
-			$date = $day . '/' . $month . '/' . $year;
+			$date2m = $month . '/' . $day2m . '/' . $year;
+			$date2p = $month . '/' . $day2p . '/' . $year;
+			$date1m = $month . '/' . $day1m . '/' . $year;
+			$date1p = $month . '/' . $day1p . '/' . $year;
+			$date = $month . '/' . $day . '/' . $year;
 			$dateAr = array($date2m, $date2p, $date1m, $date1p,$date);
 			
 			$flights = DB::table('trip')

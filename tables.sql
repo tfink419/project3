@@ -37,8 +37,6 @@ CREATE TABLE Trip
 	PRIMARY KEY(tripNum),
 	CONSTRAINT c1 FOREIGN KEY (depCode) REFERENCES Airport(code),
 	CONSTRAINT c2 FOREIGN KEY (destCode) REFERENCES Airport(code),
-	CONSTRAINT c3 FOREIGN KEY (departDate) REFERENCES Flight_leg(legDate),
-	CONSTRAINT c4 FOREIGN KEY (departTime) REFERENCES Flight_leg(departTime),
 	CONSTRAINT checkDepDest CHECK(depCode <> destCode)
 );
 
@@ -88,7 +86,7 @@ CREATE TABLE Payment
 	CONSTRAINT c8 FOREIGN KEY (resNum) REFERENCES Reservation(reservationNum)
 );
 
---Data
+--Data--
 INSERT INTO Airport
 VALUES('GAI', 'Gainesville', 'Florida', 'Gainesville Regional Airport');
 INSERT INTO Airport
@@ -137,7 +135,7 @@ INSERT INTO Trip
 VALUES('10', 'Canada',1200,'SAR', 'GAI', 3, '11/11/2013','4_00');
 
 INSERT INTO Flight_leg
-VALUES('1', 'GAI','MIA','1', 400, '11/11/2013','4_00','6_00','1');
+VALUES('1', 'GAI','MIA','1', 200, '11/11/2013','4_00','6_00','1');
 INSERT INTO Flight_leg
 VALUES('1', 'MIA','ORL','2', 450, '11/11/2013','6_30','8_00','2');
 INSERT INTO Flight_leg
@@ -151,7 +149,7 @@ VALUES('1', 'GAI','MIA','5', 400, '11/11/2013','4_00','6_00','1');
 INSERT INTO Flight_leg
 VALUES('2', 'MIA','ORL','5', 450, '11/11/2013','6_30','8_00','2');
 INSERT INTO Flight_leg
-VALUES('3', 'ORL','SAR','5', 400, '11/11/2013','10_00','12_00','1');
+VALUES('3', 'ORL','SAR','5', 100, '11/11/2013','10_00','12_00','1');
 INSERT INTO Flight_leg
 VALUES('1', 'MIA','GAI','6', 400, '11/11/2013','10_00','12_00','1');
 INSERT INTO Flight_leg

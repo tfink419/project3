@@ -65,13 +65,16 @@
       {
       	$f = $flights[$i];
       	$currentTrip = DB::table('trip')->where('tripNum', '=', $f->tripNum)->get();
+      	$lowestSeats = DB::table('flight_leg')
+                     ->where('tripNum','=',$f->tripNum)
+                     ->min('seatsAvailable');
         
         echo '<tr><td>' . '<a href="../flightinfo/' . $id . '/' . $f->tripNum . '">' . $f->tripNum . '</a></td>';
-        echo '<td>' . $f->legDate . '</td>';
-        echo '<td>' . $f->departureCode . '</td>';
-        echo '<td>' . $f->destinationCode . '</td>';
-        echo '<td>' . $f->seatsAvailable . '</td>';
-        echo '<td>' . 'blah' . '</td>';
+        echo '<td>' . $f->departDate . '</td>';
+        echo '<td>' . $f->depCode . '</td>';
+        echo '<td>' . $f->destCode . '</td>';
+        echo '<td>' . $lowestSeats . '</td>';
+        echo '<td>' . $f->price . '</td>';
         echo '</tr>';
       }
   }

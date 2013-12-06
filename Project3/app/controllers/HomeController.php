@@ -186,6 +186,20 @@ class HomeController extends BaseController {
 		{
 			return Redirect::to('../../../bookflight/' . $id . '/' . $tripNum);
 		}
+		elseif(Input::has('delete'))
+		{
+			if(count(DB::table('payment')->select(DB::raw('*'))->where('tripNum', '=', $tripNum)->get()) == 0)
+			{
+				DB::table('flight_leg')
+						 ->where('tripNum', '=', $tripNum)
+						 ->delete();
+				DB::table('trip')
+						 ->where('tripNum', '=', $tripNum)
+						 ->delete();
+				return Redirect::to('../../../confirmdel/' . $id);
+			}
+			return Redirect::to('../../../declinedel/' . $id);
+		}
 		return View::make('flightinfo')->with('id', $id)->with('tripNum', $tripNum);
 	}
 	
@@ -209,7 +223,6 @@ class HomeController extends BaseController {
     		array('tripNum' => $tripNum, 'transactionNum' => $tripNum, 'accountNum' => $id));
     		
     		
-    		
     		$prevSeats = DB::table('flight_leg')
                      ->where('tripNum','=',$tripNum)->pluck('seatsAvailable');
             DB::table('flight_leg')
@@ -229,5 +242,12 @@ class HomeController extends BaseController {
 	{
 		return View::make('confirmres')->with('id', $id);
 	}
-
+	public function getConfirmdel($id)
+	{
+		return View::make('confirmdel')->with('id', $id);
+	}
+	public function getDeclinedel($id)
+	{
+		return View::make('declinedel')->with('id', $id);
+	}
 }

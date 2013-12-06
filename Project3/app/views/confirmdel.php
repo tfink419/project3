@@ -41,51 +41,11 @@
 
 <div>
 	<div style="padding-left:50px; padding-right:50px; padding-top:10px; opacity:0.9 ; z-index:2 ; display:block ; margin-left:auto ; margin-right:auto ; width:1200px ; height:600px ; background-color:#FFF ;">
-		<h2>Flight Information</h2>
+		<h2>Confirmation</h2>
 		<hr>
+		<div class="alert alert-success">The flight has successfully been cancelled, there were no passengers booked for the flight.<br>You will now be redirected.</div>
 		<?php 
-			$flight = $currentTrip = DB::table('trip')->where('tripNum', '=', $tripNum)->get(); 
-			$flight = $flight[0];
-		?>
-		<div class="row">
-		<div class="col-md-4">
-		<label>Trip Number:&nbsp</label><?php echo $flight->tripNum;?><br>
-		<label>Airline:&nbsp</label><?php echo $flight->airline;?><br>
-		<label>Departure Airport:&nbsp</label><?php echo $flight->depCode;?><br>
-		<label>Destination Airport:&nbsp</label><?php echo $flight->destCode;?><br>
-		<label>Number of Flight Legs:&nbsp</label><?php echo $flight->numLegs;?><br>
-		</div>
-		<div class="col-md-1">
-		</div>
-		<div class="col-md-4">
-		</div>
-		</div>
-		<br><br<br><br><br><br<br><br>
-		<?php
-			//$seatsLeft = DB::table('flight_leg')->select('seatsAvailable')->where('tripNum', '=', $tripNum)->where('departureCode', '=', $flight->depCode)->where('destinationCode', '=', $flight->destCode)->pluck('seatsAvailable');
-			$seatsLeft = DB::table('flight_leg')
-                     ->where('tripNum','=',$flight->tripNum)
-                     ->min('seatsAvailable');
-			if($seatsLeft == 0)
-			{
-				echo 'Sorry, there are no more seats available on this flight.';
-			}
-			else
-			{
-				echo '<form method="post"><input type="submit" name="bookflight" class="btn btn-primary" value="Book This Flight"/></form>';
-			}
-		?>
-		
-		<?php
-			$isAdmin = DB::table('users')->select('isAdmin')->where('id', '=', $id)->pluck('isAdmin');
-			
-			//If the user is an admin (airline agent) give additional options
-			if($isAdmin)
-			{
-				echo '<input type="submit" class="btn btn-warning" value="Edit Flight Info"/>';
-				echo '&nbsp';
-				echo '<form method="post"><input type="submit" name="delete" class="btn btn-danger" value="Delete Flight"/></form>';
-			}
+			header('Refresh: 3; url=../../../myflights/' . $id);
 		?>
 	</div>
 </div>

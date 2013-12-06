@@ -38,4 +38,6 @@ Route::post('flightinfo/{id}/{tripNum}', 'HomeController@postFlightInfo');
 Route::get('bookflight/{id}/{tripNum}', 'HomeController@getBookflight');
 Route::post('bookflight/{id}/{tripNum}', 'HomeController@postBookflight');
 
-Route::get('confirmres/{id}', 'HomeController@getconfirmres');
+Route::get('confirmres/{id}', 'HomeController@getConfirmres');
+Route::get('confirmdel/{id}', 'HomeController@getConfirmdel');
+Route::get('declinedel/{id}', 'HomeController@getDeclinedel');

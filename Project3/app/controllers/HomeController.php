@@ -108,25 +108,38 @@ class HomeController extends BaseController {
 		return View::make('searchflights')->with('id', $id);
 	}
 	
-	11/11/
 	
 	public function postSearchflights($id)
 	{
 		//Check to see if searched by date range
 		if(Input::has('date1'))
 		{
+			$departCode = Input::get('dep_code');
+			$destCode = Input::get('dest_code');
 			//Parse day field
 			$day = substr(Input::get('date1'), 3, 2);
 			$month = substr(Input::get('date1'), 0, 2);
 			$year = substr(Input::get('date1'), 6, 4);
 			
-			$day1 = $day - 2;
-			$day2 = $day + 2;	
+			$day2m = $day - 2;
+			$day2p = $day + 2;
+			$day1m = $day - 1;
+			$day1p = $day + 1;		
 			
 			//Create new dates within + and - 2 days of the original
-			$date1 = $day1 . '/' . $month . '/' . $year;
-			$date2 = $day2 . '/' . $month . '/' . $year;
-				
+			$date2m = $day2m . '/' . $month . '/' . $year;
+			$date2p = $day2p . '/' . $month . '/' . $year;
+			$date1m = $day1m . '/' . $month . '/' . $year;
+			$date1p = $day1p . '/' . $month . '/' . $year;
+			$date = $day . '/' . $month . '/' . $year;
+			$dateAr = array($date2m, $date2p, $date1m, $date1p,$date);
+			
+			$flights = DB::table('trip')
+                     ->select(DB::raw('*'))
+                     ->where('depCode', '=', $departCode)
+                     ->where('destCode', '=', $destCode)
+                     ->whereIn('departDate',$dateAr)->get();
+			return View::make('searchresults')->with('id', $id)->with('flights', $flights);
 		}
 		else
 		{

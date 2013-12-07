@@ -74,11 +74,11 @@
         <div class="col-lg-4">
           <label for="dest_code">Destination Airport Code</label></br>
           <input type="text" name="dest_code_leg" class="form-control"> </br>
-          <label for="numlegs">Destination Time</label></br>
+          <label for="dest_time">Destination Time</label></br>
           <input type="text" name="arriveTime" class="form-control"> </br>
-          <label for="airline">Airplane ID</label></br>
+          <label for="airplane">Airplane ID</label></br>
           <input type="text" name="airplane" class="form-control"> </br>
-          <label for="price">Seats Available</label></br>
+          <label for="seats">Seats Available</label></br>
           <input type="text" name="seats" class="form-control"> </br>
           
           <input type="submit" value="Submit" class="btn btn-primary"/>

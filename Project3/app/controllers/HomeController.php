@@ -265,6 +265,10 @@ class HomeController extends BaseController {
 			 ->update(array('seatsAvailable' => $newSeats-$prevSeats+$leg[0]->seatsAvailable,'airplaneID' => $planeID));
 		return View::make('confirmedit')->with('id', $id)->with('tripNum', $tripNum)->with('legNum', $legNum)->with('planeID', $planeID);
 	}
+	public function getConfirmadd($id)
+	{
+		return View::make('confirmadd')->with('id', $id);
+	}
 	public function getConfirmres($id)
 	{
 		return View::make('confirmres')->with('id', $id);
@@ -280,5 +284,31 @@ class HomeController extends BaseController {
 	public function getNewtrip($id)
 	{
 		return View::make('newtrip')->with('id', $id);
+	}
+	public function postNewtrip()
+	{
+		//Gather post data
+		$input = Input::all();
+		
+		$trip = new Trip();
+		$trip->departDate = Input::get('dep_date');
+		$trip->departTime = Input::get('dep_time');
+		$trip->depCode = Input::get('dep_code');
+		$trip->destCode = Input::get('dest_code');
+		$trip->numLegs = Input::get('numlegs');
+		$trip->airline = Input::get('airline');
+		$trip->price = Input::get('price');
+		$trip->save();
+		
+		$leg = new flight_leg();
+		$leg->destinationCode = Input::get('dest_code');
+		$leg->arriveTime = Input::get('arriveTime');
+		$leg->airplaneID = Input::get('airplane');
+		$leg->seatsAvailable = Input::get('seats');
+		
+		$leg->save();
+		if(Input::get('numlegs') == 1)
+			return View::make('confirmadd')->with('id', $id);
+
 	}
 }

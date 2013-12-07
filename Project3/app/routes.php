@@ -42,6 +42,7 @@ Route::post('bookflight/{id}/{tripNum}', 'HomeController@postBookflight');
 
 Route::get('confirmedit/{id}/{tripNum}/{legNum}/{planeID}', 'HomeController@getConfirmedit');
 Route::get('confirmres/{id}', 'HomeController@getConfirmres');
+Route::get('confirmadd/{id}', 'HomeController@getConfirmadd');
 Route::get('confirmdel/{id}', 'HomeController@getConfirmdel');
 Route::get('declinedel/{id}', 'HomeController@getDeclinedel');
 

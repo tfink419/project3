@@ -49,5 +49,5 @@ Route::get('declinedel/{id}', 'HomeController@getDeclinedel');
 Route::get('newtrip/{id}', 'HomeController@getNewtrip');
 Route::post('newtrip/{id}', 'HomeController@postNewtrip');
 
-Route::get('nextleg/{id}', 'HomeController@getNextleg');
-Route::post('nextleg/{id}', 'HomeController@postNextleg');
+Route::get('nextleg/{id}/{legNum}', 'HomeController@getNextleg');
+Route::post('nextleg/{id}/{legNum}', 'HomeController@postNextleg');

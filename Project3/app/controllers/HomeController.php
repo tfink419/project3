@@ -308,7 +308,7 @@ class HomeController extends BaseController {
 		$leg->legNum = 1;
 		$leg->departTime = Input::get('dep_time');
 		$leg->departureCode = Input::get('dep_code');
-		$leg->destinationCode = Input::get('dest_code');
+		$leg->destinationCode = Input::get('dest_code_leg');
 		$leg->tripNum = $trip->tripNum;
 		$leg->arriveTime = Input::get('arriveTime');
 		$leg->airplaneID = Input::get('airplane');
@@ -317,28 +317,34 @@ class HomeController extends BaseController {
 		$leg->save();
 		if(Input::get('numlegs') == 1)
 			return View::make('confirmadd')->with('id', $id);
-		return Redirect::to('/nextleg/'. $id)->with('id', $id)->with('tripNum', $trip->tripNum)->with('prevLeg', $leg)->with('legs', $trip->numLegs);
+		Session::put('tripNum', $trip->tripNum);
+		Session::put('prevLegTime', $leg->arriveTime);
+		Session::put('prevLegCode', $leg->destinationCode);
+		Session::put('legs', $trip->numLegs);
+		return Redirect::to('/nextleg/'. $id .'/2');
 	}
-	public function getNextleg($id,$tripNum,$prevLeg,$numLegs)
+	public function getNextleg($id,$legNum)
 	{
-		return View::make('nextleg')->with('id', $id);
+		return View::make('nextleg')->with('id', $id)->with('legNum', $legNum);
 	}
-	public function postNextleg($id,$tripNum,$prevLeg,$numLegs)
+	public function postNextleg($id,$legNum)
 	{
 		$leg = new FlightLeg();
-		$leg->legNum = $prevLeg->legNum+1;
-		$leg->departTime = $prevLeg->arriveTime;
-		$leg->departureCode = $prevLeg->destinationCode;
+		$leg->legNum = $legNum;
+		$leg->departTime = Session::get('prevLegTime');
+		$leg->departureCode = Session::get('prevLegCode');
 		$leg->destinationCode = Input::get('dest_code');
-		$leg->tripNum = $tripNum;
+		$leg->tripNum = Session::get('tripNum');
 		$leg->arriveTime = Input::get('arriveTime');
 		$leg->airplaneID = Input::get('airplane');
 		$leg->seatsAvailable = Input::get('seats');
 		
 		$leg->save();
-		if($leg->legNum == $numLegs)
+		if($leg->legNum == Session::get('legs'))
 			return View::make('confirmadd')->with('id', $id);
-		return Redirect::to('/nextleg/'. $id)->with('id', $id)->with('tripNum', $tripNum)->with('prevLeg', $leg)->with('legs', $trip->numLegs);
+		Session::put('prevLegTime', $leg->arriveTime);
+		Session::put('prevLegCode', $leg->destinationCode);
+		return Redirect::to('/nextleg/'. $id .'/'. ($leg->legNum+1))->with('id', $id);
 
 	}
 }

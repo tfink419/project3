@@ -1,5 +1,5 @@
 <body style="background-image:url('http://www.hdwallpapers.in/walls/aeroplane-HD.jpg'); position:relative;">
-<link href="/css/bootstrap.css" rel="stylesheet">
+<link href="../../css/bootstrap.css" rel="stylesheet">
 <nav class="navbar navbar-default" role="navigation">
   <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header">

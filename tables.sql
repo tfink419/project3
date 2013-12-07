@@ -86,7 +86,6 @@ CREATE TABLE Payment
 	CONSTRAINT c7 FOREIGN KEY (tripNum) REFERENCES Trip(tripNum)
 );
 
---Data
 INSERT INTO Airport
 VALUES('GAI', 'Gainesville', 'Florida', 'Gainesville Regional Airport');
 INSERT INTO Airport

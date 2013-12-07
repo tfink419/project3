@@ -9,15 +9,15 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand">Airline Reservation System</a>
+    <a class="navbar-brand" href="#">Airline Reservation System</a>
   </div>
 
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav">
-      <li class="active"> <?php echo '<li><a href="/homepage/' . $id . '">'?>Home</a></li>
-      <?php echo '<li><a href="/searchflights/' . $id . '">'?>Search Flights</a></li>
-      <?php echo '<li><a href="/myflights/' . $id . '">'?>My Flights</a></li>
+      <li class="active"> <?php echo '<li><a href="../homepage/' . $id . '">'?>Home</a></li>
+      <li><a href="">Search Flights</a></li>
+      <li class="active"> <?php echo '<li><a href="../myflights/' . $id . '">'?>My Flights</a></li>
      <!-- <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Flights <b class="caret"></b></a>
         <ul class="dropdown-menu">
@@ -33,38 +33,32 @@
     </ul>
   
     <ul class="nav navbar-nav navbar-right">
-      <?php echo '<li><a href="/logout/' . $id . '">'?>
+      <?php echo '<li><a href="../logout/' . $id . '">'?>
       Logout</a></li>
     </ul>
   </div><!-- /.navbar-collapse -->
 </nav>
 
 <div>
-	<div style="padding-top:10px; opacity:0.9 ; z-index:2 ; display:block ; margin-left:auto ; margin-right:auto ; width:1200px ; height:600px ; background-color:#FFF ;">
-		
-<div class="jumbotron" style="width:95%; margin: 0 auto; border-radius: 10px">
-  <div class="container">
-    <h1>Welcome back!</h1>
-    <?php 
-    	$numTrips = DB::table('Reservation')->where('accountNum', $id)->count();
-    	//$numTrips = Reservation::whereRaw('email = '  . $email)->count();
-    ?>
-    <p><?php echo "You have " . $numTrips . " booked trips."  ?></p>
-    <div class="row">
-    <div class="col-md-4">
-    <?php echo '<p><a class="btn btn-primary btn-lg" href="/myflights/' . $id . '"' . '>' ?>My Trips</a></p>
-    <?php $isAdmin = DB::table('users')->select('isAdmin')->where('id', '=', $id)->pluck('isAdmin');
-			
-			//If the user is an admin (airline agent) give additional options
-			if($isAdmin)
-			{
-    			echo '<p><a class="btn btn-primary btn-lg" href="/newtrip/' . $id . '"' . '>Add New Trip</a></p>';
-    		}
-    ?>
-    </div>
-    </div>
-  </div>
-</div>
+	<div style="padding-top:10px; padding-left:50px; padding-bottom:10px; margin-bottom:20px; opacity:0.9 ; z-index:2 ; display:block ; margin-left:auto ; margin-right:auto ; width:1200px ; height:950px ; background-color:#FFF ;">
+      <?php echo '<h2>Leg '. ($prevLeg->legNum+1) .'</h2>'?>
+		<hr>
+	<form id="edit_project" method="post">
+      <div class="row">
+        <div class="col-lg-4">
+          <label for="dest_code">Destination Airport Code</label></br>
+          <input type="text" name="dest_code_leg" class="form-control"> </br>
+          <label for="dest_time">Destination Time</label></br>
+          <input type="text" name="arriveTime" class="form-control"> </br>
+          <label for="airplane">Airplane ID</label></br>
+          <input type="text" name="airplane" class="form-control"> </br>
+          <label for="seats">Seats Available</label></br>
+          <input type="text" name="seats" class="form-control"> </br>
+          
+          <input type="submit" value="Submit" class="btn btn-primary"/>
+        </div>
+      </div>
+    </form>
 	</div>
 </div>
 

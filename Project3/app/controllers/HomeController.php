@@ -285,9 +285,12 @@ class HomeController extends BaseController {
 	{
 		return View::make('newtrip')->with('id', $id);
 	}
-	public function postNewtrip()
+	public function postNewtrip($id)
 	{
 		//Gather post data
+		$highestTripNum = DB::table('trip')
+                     ->max('tripNum');
+                     
 		$input = Input::all();
 		
 		$trip = new Trip();
@@ -298,10 +301,15 @@ class HomeController extends BaseController {
 		$trip->numLegs = Input::get('numlegs');
 		$trip->airline = Input::get('airline');
 		$trip->price = Input::get('price');
+		$trip->tripNum = $highestTripNum+1;
 		$trip->save();
 		
-		$leg = new flight_leg();
+		$leg = new FlightLeg();
+		$leg->legNum = 1;
+		$leg->departTime = Input::get('dep_time');
+		$leg->departureCode = Input::get('dep_code');
 		$leg->destinationCode = Input::get('dest_code');
+		$leg->tripNum = $trip->tripNum;
 		$leg->arriveTime = Input::get('arriveTime');
 		$leg->airplaneID = Input::get('airplane');
 		$leg->seatsAvailable = Input::get('seats');
@@ -309,6 +317,28 @@ class HomeController extends BaseController {
 		$leg->save();
 		if(Input::get('numlegs') == 1)
 			return View::make('confirmadd')->with('id', $id);
+		return View::make('nextleg')->with('id', $id)->with('tripNum', $trip->tripNum)->with('prevLeg', $leg)->with('legs', $trip->numLegs);
+	}
+	public function getNextleg($id,$tripNum,$prevLeg,$numLegs)
+	{
+		return View::make('nextleg')->with('id', $id);
+	}
+	public function postNextleg($id,$tripNum,$prevLeg,$numLegs)
+	{
+		$leg = new FlightLeg();
+		$leg->legNum = $prevLeg->legNum+1;
+		$leg->departTime = $prevLeg->arriveTime;
+		$leg->departureCode = $prevLeg->destinationCode;
+		$leg->destinationCode = Input::get('dest_code');
+		$leg->tripNum = $tripNum;
+		$leg->arriveTime = Input::get('arriveTime');
+		$leg->airplaneID = Input::get('airplane');
+		$leg->seatsAvailable = Input::get('seats');
+		
+		$leg->save();
+		if($leg->legNum == $numLegs)
+			return View::make('confirmadd')->with('id', $id);
+		return View::make('nextleg')->with('id', $id)->with('tripNum', $tripNum)->with('prevLeg', $leg)->with('legs', $trip->numLegs);
 
 	}
 }

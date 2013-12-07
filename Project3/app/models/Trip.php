@@ -1,6 +1,6 @@
 <?php
 
-class User extends Eloquent {
+class Trip extends Eloquent {
 
 	protected $table = 'Trip';
 	public $timestamps = false;

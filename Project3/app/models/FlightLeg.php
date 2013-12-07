@@ -1,6 +1,6 @@
 <?php
 
-class User extends Eloquent {
+class FlightLeg extends Eloquent {
 
 	protected $table = 'Flight_leg';
 	public $timestamps = false;

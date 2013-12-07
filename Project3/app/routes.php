@@ -44,3 +44,5 @@ Route::get('confirmedit/{id}/{tripNum}/{legNum}/{planeID}', 'HomeController@getC
 Route::get('confirmres/{id}', 'HomeController@getConfirmres');
 Route::get('confirmdel/{id}', 'HomeController@getConfirmdel');
 Route::get('declinedel/{id}', 'HomeController@getDeclinedel');
+
+Route::get('newtrip/{id}', 'HomeController@getNewtrip');

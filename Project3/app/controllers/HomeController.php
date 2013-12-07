@@ -277,4 +277,8 @@ class HomeController extends BaseController {
 	{
 		return View::make('declinedel')->with('id', $id);
 	}
+	public function getNewtrip($id)
+	{
+		return View::make('newtrip')->with('id', $id);
+	}
 }

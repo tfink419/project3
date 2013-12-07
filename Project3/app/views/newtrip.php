@@ -40,7 +40,7 @@
 </nav>
 
 <div>
-	<div style="padding-top:10px; padding-left:50px; opacity:0.9 ; z-index:2 ; display:block ; margin-left:auto ; margin-right:auto ; width:1200px ; height:600px ; background-color:#FFF ;">
+	<div style="padding-top:10px; padding-left:50px; padding-bottom:10px; margin-bottom:20px; opacity:0.9 ; z-index:2 ; display:block ; margin-left:auto ; margin-right:auto ; width:1200px ; height:950px ; background-color:#FFF ;">
 		<h2>New Trip</h2>
 		<hr>
 		<form id="edit_project" method="post">
@@ -55,7 +55,6 @@
           <label for="dest_code">Destination Airport Code</label></br>
           <input type="text" name="dest_code" class="form-control"> </br>
           
-          <input type="submit" value="Submit" class="btn btn-primary"/>
         </div>
         <div class="col-lg-1">
         </div>
@@ -66,6 +65,23 @@
           <input type="text" name="airline" class="form-control"> </br>
           <label for="price">Price</label></br>
           <input type="text" name="price" class="form-control"> </br>
+        </div>
+      </div>
+      <h2>First Leg</h2>
+		<hr>
+		<form id="edit_project" method="post">
+      	<div class="row">
+        <div class="col-lg-4">
+          <label for="dest_code">Destination Airport Code</label></br>
+          <input type="text" name="dest_code_leg" class="form-control"> </br>
+          <label for="numlegs">Destination Time</label></br>
+          <input type="text" name="arriveTime" class="form-control"> </br>
+          <label for="airline">Airplane ID</label></br>
+          <input type="text" name="airplane" class="form-control"> </br>
+          <label for="price">Seats Available</label></br>
+          <input type="text" name="seats" class="form-control"> </br>
+          
+          <input type="submit" value="Submit" class="btn btn-primary"/>
         </div>
       </div>
     </form>

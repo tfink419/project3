@@ -46,3 +46,4 @@ Route::get('confirmdel/{id}', 'HomeController@getConfirmdel');
 Route::get('declinedel/{id}', 'HomeController@getDeclinedel');
 
 Route::get('newtrip/{id}', 'HomeController@getNewtrip');
+Route::post('newtrip/{id}', 'HomeController@postNewtrip');

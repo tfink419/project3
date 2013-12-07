@@ -50,8 +50,12 @@
     	//$numTrips = Reservation::whereRaw('email = '  . $email)->count();
     ?>
     <p><?php echo "You have " . $numTrips . " booked trips."  ?></p>
+    <div class="row">
+    <div class="col-md-4">
     <?php echo '<p><a class="btn btn-primary btn-lg" href="/myflights/' . $id . '"' . '>' ?>My Trips</a></p>
     <?php echo '<p><a class="btn btn-primary btn-lg" href="/newtrip/' . $id . '"' . '>' ?>Add New Trip</a></p>
+    </div>
+    </div>
   </div>
 </div>
 	</div>

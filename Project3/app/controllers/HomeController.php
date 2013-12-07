@@ -317,7 +317,7 @@ class HomeController extends BaseController {
 		$leg->save();
 		if(Input::get('numlegs') == 1)
 			return View::make('confirmadd')->with('id', $id);
-		return View::make('nextleg')->with('id', $id)->with('tripNum', $trip->tripNum)->with('prevLeg', $leg)->with('legs', $trip->numLegs);
+		return Redirect::to('/nextleg/'. $id)->with('id', $id)->with('tripNum', $trip->tripNum)->with('prevLeg', $leg)->with('legs', $trip->numLegs);
 	}
 	public function getNextleg($id,$tripNum,$prevLeg,$numLegs)
 	{
@@ -338,7 +338,7 @@ class HomeController extends BaseController {
 		$leg->save();
 		if($leg->legNum == $numLegs)
 			return View::make('confirmadd')->with('id', $id);
-		return View::make('nextleg')->with('id', $id)->with('tripNum', $tripNum)->with('prevLeg', $leg)->with('legs', $trip->numLegs);
+		return Redirect::to('/nextleg/'. $id)->with('id', $id)->with('tripNum', $tripNum)->with('prevLeg', $leg)->with('legs', $trip->numLegs);
 
 	}
 }
